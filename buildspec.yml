@@ -1,19 +1,10 @@
 version: 0.2
 
 phases:
-  pre_build:
-    commands:
-      - aws --version
-      - echo Logging into Amazon ECR...
-      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 314146340349.dkr.ecr.ap-south-1.amazonaws.com
-
   build:
     commands:
-      - echo Build started
-      - docker build -t devops-static-website .
-      - docker tag devops-static-website:latest 314146340349.dkr.ecr.ap-south-1.amazonaws.com/devops-static-website:latest
+      - echo "Deploying website"
 
-  post_build:
-    commands:
-      - echo Pushing image...
-      - docker push 314146340349.dkr.ecr.ap-south-1.amazonaws.com/devops-static-website:latest
+artifacts:
+  files:
+    - '**/*'
