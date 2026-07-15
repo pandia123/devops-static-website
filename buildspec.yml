@@ -10,10 +10,10 @@ phases:
   build:
     commands:
       - echo "Build started..."
-      - docker build -t tooplate-app .
-      - docker tag tooplate-app:latest 314146340349.dkr.ecr.ap-south-1.amazonaws.com/tooplate-app:latest
+      - docker build -t devops-static-website .
+      - docker tag devops-static-website:latest 314146340349.dkr.ecr.ap-south-1.amazonaws.com/devops-static-website:latest
 
   post_build:
     commands:
       - echo "Pushing image..."
-      - docker push 314146340349.dkr.ecr.ap-south-1.amazonaws.com/tooplate-app:latest
+      - docker push 314146340349.dkr.ecr.ap-south-1.amazonaws.com/devops-static-website:latest
